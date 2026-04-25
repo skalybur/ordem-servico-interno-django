@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Confirmar Exclusão</title>
+</head>
+<body>
+    <h1>Excluir Solicitação</h1>
+    <p>Tem certeza que deseja excluir a solicitação: <strong>"{{ object.descricao }}"</strong>?</p>
+
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" style="background-color: red; color: white; padding: 10px; border: none; cursor: pointer;">
+            Sim, desejo excluir
+        </button>
+        <a href="{% url 'solicitacao_list' %}">Cancelar</a>
+    </form>
+</body>
+</html>

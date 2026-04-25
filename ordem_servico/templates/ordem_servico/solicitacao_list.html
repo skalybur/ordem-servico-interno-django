@@ -1,0 +1,46 @@
+<div style="display: flex; justify-content: space-between; align-items: center;">
+    <h1>Lista de Solicitações</h1>
+    
+    <form action="{% url 'logout' %}" method="post">
+        {% csrf_token %}
+        <button type="submit" style="background: none; border: none; color: #007bff; cursor: pointer; text-decoration: underline; font-family: inherit; font-size: 16px;">
+            Sair ({{ user.username }})
+        </button>
+    </form>
+</div>
+
+<a href="{% url 'solicitacao_create' %}"><strong>+ Abrir Nova Solicitação</strong></a>
+<hr>
+
+<ul>
+    {% for solicitacao in solicitacoes %}
+        <li style="margin-bottom: 15px;">
+            <strong>{{ solicitacao.data_criacao|date:"d/m/Y H:i" }}</strong> - 
+            {{ solicitacao.setor }} [{{ solicitacao.categoria }}]
+            <br>
+            {{ solicitacao.descricao }}
+            <br>
+            <small>
+                <a href="{% url 'solicitacao_edit' solicitacao.pk %}">Editar</a> | 
+                <a href="{% url 'solicitacao_delete' solicitacao.pk %}" style="color: red;">Excluir</a>
+            </small>
+        </li>
+    {% empty %}
+        <li>Nenhuma solicitação encontrada.</li>
+    {% endfor %}
+</ul>
+
+{% if is_paginated %}
+    <hr>
+    <div>
+        {% if page_obj.has_previous %}
+            <a href="?page={{ page_obj.previous_page_number }}">Anterior</a>
+        {% endif %}
+        
+        <span>Página {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}</span>
+        
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}">Próxima</a>
+        {% endif %}
+    </div>
+{% endif %}
