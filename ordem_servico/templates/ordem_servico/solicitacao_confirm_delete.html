@@ -1,8 +1,11 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Confirmar Exclusão</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Excluir Solicitação</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
     <h1>Excluir Solicitação</h1>
@@ -10,9 +13,7 @@
 
     <form method="post">
         {% csrf_token %}
-        <button type="submit" style="background-color: red; color: white; padding: 10px; border: none; cursor: pointer;">
-            Sim, desejo excluir
-        </button>
+        <button type="submit" class="btn btn-danger">Sim, desejo excluir</button>
         <a href="{% url 'solicitacao_list' %}">Cancelar</a>
     </form>
 </body>

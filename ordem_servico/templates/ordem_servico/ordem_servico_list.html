@@ -1,35 +1,87 @@
-<h1>Painel de Ordens de Serviço</h1>
-<div style="display: flex; justify-content: space-between; align-items: center;">
-    <a href="{% url 'solicitacao_list' %}">Voltar para Solicitações</a>
-    <a href="{% url 'os_create' %}"><strong>+ Gerar Nova OS</strong></a>
-</div>
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel de Ordens de Serviço</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    
+    <h1>Painel de Ordens de Serviço</h1>
+    
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+        <a href="{% url 'solicitacao_list' %}">← Voltar para Solicitações</a>
+        <a href="{% url 'os_create' %}" class="btn">+ Gerar Nova OS</a>
+    </div>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>ID OS</th>
+                <th>Setor / Categoria</th>
+                <th>Descrição do Problema</th>
+                <th>Técnico</th> <th>Diagnóstico Técnico</th>
+                <th>Status</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
 
-<table border="1" style="width: 100%; border-collapse: collapse; text-align: left;">
-    <thead>
-        <tr style="background-color: #f2f2f2;">
-            <th>ID OS</th>
-            <th>Setor</th>
-            <th>Categoria</th>
-            <th>Técnico Responsável</th>
-            <th>Status</th>
-            <th>Ações</th> </tr>
-    </thead>
-    <tbody>
-        {% for os in ordens %}
+        <tbody>
+            {% for os in ordens %}
             <tr>
                 <td>#{{ os.id }}</td>
-                <td>{{ os.solicitacao.setor }}</td>
-                <td>{{ os.solicitacao.categoria }}</td>
-                <td>{{ os.tecnico.user.get_full_name|default:os.tecnico.user.username|default:"Não atribuído" }}</td>
-                <td><strong>{{ os.get_status_display }}</strong></td>
                 <td>
-                    <a href="{% url 'os_edit' os.pk %}" style="color: #4da6ff;">Editar</a>
+                    <strong>{{ os.solicitacao.setor }}</strong><br>
+                    <small>{{ os.solicitacao.categoria }}</small>
+                </td>
+                <td style="max-width: 200px; font-size: 0.9em; color: #bbb;">
+                    {{ os.solicitacao.descricao|truncatechars:50 }}
+                </td>
+
+                <td>
+                    {% if os.tecnico %}
+                        {{ os.tecnico.user.get_full_name|default:os.tecnico.user.username }}
+                    {% else %}
+                        <span style="color: #888;">Não atribuído</span>
+                    {% endif %}
+                </td>
+
+                <td style="max-width: 200px; font-size: 0.9em; font-style: italic;">
+                    {{ os.diagnostico|default:"Aguardando avaliação"|truncatechars:50 }}
+                </td>
+                
+                <td class="status-{{ os.status|lower }}">
+                    <strong>{{ os.get_status_display }}</strong>
+                </td>
+                
+                <td>
+                    <a href="{% url 'os_edit' os.pk %}" style="color: #4D7AFF;">Editar</a>
                 </td>
             </tr>
-        {% empty %}
-            <tr>
-                <td colspan="6" style="text-align: center;">Nenhuma Ordem de Serviço aberta no momento.</td>
-            </tr>
-        {% endfor %}
-    </tbody>
-</table>
+            {% endfor %}
+        </tbody>
+    </table>
+    <div style="margin-top: 20px; text-align: center;">
+        {% if is_paginated %}
+            <div class="pagination">
+                {% if page_obj.has_previous %}
+                    <a href="?page=1" style="margin-right: 10px;">&laquo; Primeira</a>
+                    <a href="?page={{ page_obj.previous_page_number }}" style="margin-right: 10px;">Anterior</a>
+                {% endif %}
+
+                <span style="color: #bbb;">
+                    Página {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}
+                </span>
+
+                {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}" style="margin-left: 10px;">Próxima</a>
+                    <a href="?page={{ page_obj.paginator.num_pages }}" style="margin-left: 10px;">Última &raquo;</a>
+                {% endif %}
+            </div>
+        {% endif %}
+    </div>
+
+</body>
+</html>

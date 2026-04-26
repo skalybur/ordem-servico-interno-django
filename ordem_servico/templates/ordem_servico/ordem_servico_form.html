@@ -1,20 +1,69 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Gerar Ordem de Serviço</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerar/Editar Ordem de Serviço</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
-    <h1>Gerar Nova Ordem de Serviço</h1>
-    <hr>
 
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Salvar Ordem de Serviço</button>
-    </form>
+    <div class="form-container">
+        <h1>{% if form.instance.pk %}Atualizar{% else %}Gerar Nova{% endif %} OS</h1>
 
-    <br>
-    <a href="{% url 'os_list' %}">Cancelar e Voltar</a>
+        {% if form.instance.pk %}
+            <div style="background: #333; padding: 15px; border-left: 4px solid var(--primary); margin-bottom: 20px; text-align: left;">
+                <p style="margin: 0; font-size: 14px; color: #bbb;">Descrição do Solicitante:</p>
+                <p style="margin: 5px 0 0 0; font-style: italic;">"{{ form.instance.solicitacao.descricao }}"</p>
+            </div>
+        {% endif %}
+
+        <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    
+    <div id="detalhe-solicitacao" style="background: #1e1e1e; padding: 15px; font-size: 14px; border-radius: 5px; display: none; color: #4da6ff; border: 1px dashed #444; margin-bottom: 20px; text-align: left;">
+        <strong style="display: block; margin-bottom: 5px;">Descrição Completa:</strong>
+        <span id="texto-detalhe" style="color: #e0e0e0; font-style: italic; line-height: 1.5;"></span>
+    </div>
+
+    <button type="submit" class="btn">Salvar Ordem de Serviço</button>
+</form>
+
+<div style="margin-top: 20px; text-align: center;">
+    <a href="{% url 'os_list' %}">← Cancelar e Voltar para o Painel</a>
+</div>
+
+<div id="dados-descricoes" style="display: none;">
+    {% for obj in form.fields.solicitacao.queryset %}
+        <span data-id="{{ obj.id }}">{{ obj.descricao }}</span>
+    {% endfor %}
+</div>
+
+<script>
+    const selectSolicitacao = document.querySelector('select[name="solicitacao"]');
+    const boxDetalhe = document.getElementById('detalhe-solicitacao');
+    const textoDetalhe = document.getElementById('texto-detalhe');
+    const fonteDados = document.getElementById('dados-descricoes');
+
+    function atualizarExibicao() {
+        const idSelecionado = selectSolicitacao.value;
+        
+        // Busca a descrição dentro da nossa "div escondida"
+        const elementoDescricao = fonteDados.querySelector(`[data-id="${idSelecionado}"]`);
+        
+        if (idSelecionado && elementoDescricao) {
+            textoDetalhe.innerText = elementoDescricao.innerText;
+            boxDetalhe.style.display = 'block';
+        } else {
+            boxDetalhe.style.display = 'none';
+        }
+    }
+
+    selectSolicitacao.addEventListener('change', atualizarExibicao);
+    window.addEventListener('DOMContentLoaded', atualizarExibicao);
+</script>
+
 </body>
 </html>

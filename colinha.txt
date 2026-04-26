@@ -1,3 +1,10 @@
+LOGIN ALDO:
+
+nome: Aldo
+senha: oliveira321
+
+------------------------------------------------------------------------------------------
+
 LOGIN PEDRO:
 
 nome: Pedro
@@ -5,8 +12,9 @@ senha: lucas321
 
 ------------------------------------------------------------------------------------------
 
-Para os seus colegas carregarem esses dados, após rodarem o migrate, eles devem usar: 
+LOGIN MARCOS:
 
-python manage.py loaddata dados.json
+nome: Marcos
+senha: vinicius321
 
 ------------------------------------------------------------------------------------------

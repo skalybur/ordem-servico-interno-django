@@ -1,3 +1,4 @@
+from .forms import OrdemServicoForm
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -9,7 +10,11 @@ class SolicitacaoListView(LoginRequiredMixin, ListView):
     template_name = 'ordem_servico/solicitacao_list.html'
     context_object_name = 'solicitacoes'
     paginate_by = 5
-    ordering = ['-data_criacao']
+    # Remova o 'ordering' daqui, pois vamos ordenar dentro do queryset abaixo
+
+    def get_queryset(self):
+    # O sinal de '-' indica ordem DECRESCENTE (mais novo primeiro)
+        return Solicitacao.objects.filter(ordemservico__isnull=True).order_by('-data_criacao')
 
 # 2. Cadastro (Create)
 class SolicitacaoCreateView(LoginRequiredMixin, CreateView):
@@ -41,18 +46,19 @@ class OrdemServicoListView(LoginRequiredMixin, ListView):
     model = OrdemServico
     template_name = 'ordem_servico/ordem_servico_list.html'
     context_object_name = 'ordens'
-    ordering = ['-data_abertura']
+    ordering = ['data_abertura']
+    paginate_by = 7
 
 # 6. Cadastro de Ordem de Serviço (Create)
 class OrdemServicoCreateView(LoginRequiredMixin, CreateView):
     model = OrdemServico
     template_name = 'ordem_servico/ordem_servico_form.html'
-    fields = ['solicitacao', 'tecnico', 'diagnostico', 'status']
+    form_class = OrdemServicoForm
     success_url = reverse_lazy('os_list')
 
 # 7. Edição de Ordem de Serviço (Update)
 class OrdemServicoUpdateView(LoginRequiredMixin, UpdateView):
     model = OrdemServico
-    template_name = 'ordem_servico/ordem_servico_form.html' # Reutiliza o mesmo form
-    fields = ['tecnico', 'diagnostico', 'status'] # Não deixamos editar a solicitação original
+    template_name = 'ordem_servico/ordem_servico_form.html'
+    form_class = OrdemServicoForm
     success_url = reverse_lazy('os_list')

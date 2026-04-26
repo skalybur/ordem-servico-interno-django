@@ -1,20 +1,23 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Nova Solicitação</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Formulário de Solicitação</title>
 </head>
 <body>
-    <h1>Abrir Nova Solicitação</h1>
-    <hr>
-    
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Enviar Solicitação</button>
-    </form>
-
-    <br>
-    <a href="{% url 'solicitacao_list' %}">Voltar para a lista</a>
+    <div class="form-container">
+        <h1>{% if form.instance.pk %}Editar{% else %}Nova{% endif %} Solicitação</h1>
+        
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn">Salvar Solicitação</button>
+        </form>
+        
+        <br>
+        <a href="{% url 'solicitacao_list' %}" style="display: block; text-align: center;">Cancelar e Voltar</a>
+    </div>
 </body>
 </html>

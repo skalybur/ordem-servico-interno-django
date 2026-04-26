@@ -34,7 +34,8 @@ class Solicitacao(models.Model):
         verbose_name_plural = "Solicitações"
 
     def __str__(self):
-        return f"Solicitação {self.id} - {self.setor} [{self.categoria}]"
+        # Unindo Setor, Categoria e um resumo da Descrição
+        return f"Setor: {self.setor} | Categoria: {self.categoria} | Descrição: {self.descricao[:40]}..."
 
 # No Modelo 4: Perfil do Funcionário
 class PerfilFuncionario(models.Model):
