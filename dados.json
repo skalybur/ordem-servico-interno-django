@@ -1,258 +1,5 @@
 [
 {
-    "model": "ordem_servico.setor",
-    "pk": 1,
-    "fields": {
-        "nome": "Bloco A"
-    }
-},
-{
-    "model": "ordem_servico.setor",
-    "pk": 2,
-    "fields": {
-        "nome": "Bloco H"
-    }
-},
-{
-    "model": "ordem_servico.setor",
-    "pk": 3,
-    "fields": {
-        "nome": "Bloco B"
-    }
-},
-{
-    "model": "ordem_servico.categoria",
-    "pk": 1,
-    "fields": {
-        "nome": "Jardinagem"
-    }
-},
-{
-    "model": "ordem_servico.categoria",
-    "pk": 2,
-    "fields": {
-        "nome": "Limpeza"
-    }
-},
-{
-    "model": "ordem_servico.categoria",
-    "pk": 3,
-    "fields": {
-        "nome": "TI"
-    }
-},
-{
-    "model": "ordem_servico.solicitacao",
-    "pk": 1,
-    "fields": {
-        "solicitante": 1,
-        "setor": 2,
-        "categoria": 3,
-        "descricao": "A internet est√ü muito lenta.",
-        "data_criacao": "2026-04-25T19:03:59.786Z"
-    }
-},
-{
-    "model": "ordem_servico.solicitacao",
-    "pk": 2,
-    "fields": {
-        "solicitante": 1,
-        "setor": 1,
-        "categoria": 1,
-        "descricao": "Podar a grama do p√ütio.",
-        "data_criacao": "2026-04-25T19:05:20.447Z"
-    }
-},
-{
-    "model": "ordem_servico.solicitacao",
-    "pk": 4,
-    "fields": {
-        "solicitante": 1,
-        "setor": 3,
-        "categoria": 2,
-        "descricao": "Escurregaram o moreno no banheiro e t√ü fedendo muito.",
-        "data_criacao": "2026-04-25T19:14:26.204Z"
-    }
-},
-{
-    "model": "ordem_servico.solicitacao",
-    "pk": 5,
-    "fields": {
-        "solicitante": 1,
-        "setor": 2,
-        "categoria": 3,
-        "descricao": "Na sala H8, os computadores desligam sozinhos.",
-        "data_criacao": "2026-04-25T19:19:00.515Z"
-    }
-},
-{
-    "model": "ordem_servico.solicitacao",
-    "pk": 6,
-    "fields": {
-        "solicitante": 1,
-        "setor": 1,
-        "categoria": 2,
-        "descricao": "A sala de espera est√ü com o lixeiro cheio.",
-        "data_criacao": "2026-04-25T19:19:39.788Z"
-    }
-},
-{
-    "model": "ordem_servico.solicitacao",
-    "pk": 7,
-    "fields": {
-        "solicitante": 1,
-        "setor": 3,
-        "categoria": 1,
-        "descricao": "Arvore precisa de podagem.",
-        "data_criacao": "2026-04-25T19:20:10.962Z"
-    }
-},
-{
-    "model": "ordem_servico.solicitacao",
-    "pk": 9,
-    "fields": {
-        "solicitante": 1,
-        "setor": 2,
-        "categoria": 3,
-        "descricao": "Os PCs na sala H7 est√ío dando choque el√ötrico.",
-        "data_criacao": "2026-04-26T01:16:21.464Z"
-    }
-},
-{
-    "model": "ordem_servico.solicitacao",
-    "pk": 10,
-    "fields": {
-        "solicitante": 1,
-        "setor": 1,
-        "categoria": 2,
-        "descricao": "Vomitaram o ch√ío do banheiro masculino.",
-        "data_criacao": "2026-04-26T02:04:53.241Z"
-    }
-},
-{
-    "model": "ordem_servico.solicitacao",
-    "pk": 11,
-    "fields": {
-        "solicitante": 1,
-        "setor": 2,
-        "categoria": 2,
-        "descricao": "Derramaram comida no corredor do primeiro andar.",
-        "data_criacao": "2026-04-26T02:10:48.150Z"
-    }
-},
-{
-    "model": "ordem_servico.perfilfuncionario",
-    "pk": 1,
-    "fields": {
-        "user": 2,
-        "categoria": 2
-    }
-},
-{
-    "model": "ordem_servico.perfilfuncionario",
-    "pk": 2,
-    "fields": {
-        "user": 3,
-        "categoria": 3
-    }
-},
-{
-    "model": "ordem_servico.perfilfuncionario",
-    "pk": 3,
-    "fields": {
-        "user": 4,
-        "categoria": 1
-    }
-},
-{
-    "model": "ordem_servico.ordemservico",
-    "pk": 1,
-    "fields": {
-        "solicitacao": 1,
-        "tecnico": 2,
-        "diagnostico": "O roteador precisou ser reiniciado.",
-        "status": "concluido",
-        "data_abertura": "2026-04-25T20:14:41.119Z"
-    }
-},
-{
-    "model": "ordem_servico.ordemservico",
-    "pk": 2,
-    "fields": {
-        "solicitacao": 9,
-        "tecnico": 2,
-        "diagnostico": "Um cabo estava desemcapado e causou mal contato.",
-        "status": "concluido",
-        "data_abertura": "2026-04-26T01:21:13.614Z"
-    }
-},
-{
-    "model": "ordem_servico.ordemservico",
-    "pk": 3,
-    "fields": {
-        "solicitacao": 5,
-        "tecnico": 2,
-        "diagnostico": "Um disjuntor estava desarmando sozinho! E com isso causando o problema. \r\n\r\nTroquei o mesmo e normalizou.",
-        "status": "concluido",
-        "data_abertura": "2026-04-26T01:25:40.746Z"
-    }
-},
-{
-    "model": "ordem_servico.ordemservico",
-    "pk": 4,
-    "fields": {
-        "solicitacao": 6,
-        "tecnico": 1,
-        "diagnostico": "O lixo foi recolhido.",
-        "status": "concluido",
-        "data_abertura": "2026-04-26T01:40:16.909Z"
-    }
-},
-{
-    "model": "ordem_servico.ordemservico",
-    "pk": 5,
-    "fields": {
-        "solicitacao": 7,
-        "tecnico": 3,
-        "diagnostico": "‚î¥rvore podada.",
-        "status": "concluido",
-        "data_abertura": "2026-04-26T02:02:19.245Z"
-    }
-},
-{
-    "model": "ordem_servico.ordemservico",
-    "pk": 6,
-    "fields": {
-        "solicitacao": 2,
-        "tecnico": 3,
-        "diagnostico": "Grama aparada.",
-        "status": "concluido",
-        "data_abertura": "2026-04-26T02:03:53.388Z"
-    }
-},
-{
-    "model": "ordem_servico.ordemservico",
-    "pk": 7,
-    "fields": {
-        "solicitacao": 10,
-        "tecnico": 1,
-        "diagnostico": "Banheiro lavado com sucesso.",
-        "status": "concluido",
-        "data_abertura": "2026-04-26T02:05:20.605Z"
-    }
-},
-{
-    "model": "ordem_servico.ordemservico",
-    "pk": 8,
-    "fields": {
-        "solicitacao": 11,
-        "tecnico": 1,
-        "diagnostico": "Corredor limpo!",
-        "status": "concluido",
-        "data_abertura": "2026-04-26T02:11:09.384Z"
-    }
-},
-{
     "model": "auth.permission",
     "pk": 1,
     "fields": {
@@ -616,7 +363,7 @@
     "model": "auth.permission",
     "pk": 41,
     "fields": {
-        "name": "Can add Perfil de Funcion√ürio",
+        "name": "Can add Perfil de Funcionﬂrio",
         "content_type": 11,
         "codename": "add_perfilfuncionario"
     }
@@ -625,7 +372,7 @@
     "model": "auth.permission",
     "pk": 42,
     "fields": {
-        "name": "Can change Perfil de Funcion√ürio",
+        "name": "Can change Perfil de Funcionﬂrio",
         "content_type": 11,
         "codename": "change_perfilfuncionario"
     }
@@ -634,7 +381,7 @@
     "model": "auth.permission",
     "pk": 43,
     "fields": {
-        "name": "Can delete Perfil de Funcion√ürio",
+        "name": "Can delete Perfil de Funcionﬂrio",
         "content_type": 11,
         "codename": "delete_perfilfuncionario"
     }
@@ -643,7 +390,7 @@
     "model": "auth.permission",
     "pk": 44,
     "fields": {
-        "name": "Can view Perfil de Funcion√ürio",
+        "name": "Can view Perfil de Funcionﬂrio",
         "content_type": 11,
         "codename": "view_perfilfuncionario"
     }
@@ -653,7 +400,7 @@
     "pk": 1,
     "fields": {
         "password": "pbkdf2_sha256$1200000$GXWa2labJnnSFBvqy6DnyD$3moiHEF9z9sHUZRwuzZJX7fwUUv8K/cSRCjF8geC2Aw=",
-        "last_login": "2026-04-26T00:31:50.236Z",
+        "last_login": "2026-04-27T16:06:43.218Z",
         "is_superuser": true,
         "username": "admin",
         "first_name": "",
@@ -718,6 +465,355 @@
         "date_joined": "2026-04-26T01:57:01.699Z",
         "groups": [],
         "user_permissions": []
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 1,
+    "fields": {
+        "app_label": "admin",
+        "model": "logentry"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 2,
+    "fields": {
+        "app_label": "auth",
+        "model": "group"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 3,
+    "fields": {
+        "app_label": "auth",
+        "model": "permission"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 4,
+    "fields": {
+        "app_label": "auth",
+        "model": "user"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 5,
+    "fields": {
+        "app_label": "contenttypes",
+        "model": "contenttype"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 6,
+    "fields": {
+        "app_label": "sessions",
+        "model": "session"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 7,
+    "fields": {
+        "app_label": "ordem_servico",
+        "model": "categoria"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 8,
+    "fields": {
+        "app_label": "ordem_servico",
+        "model": "ordemservico"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 9,
+    "fields": {
+        "app_label": "ordem_servico",
+        "model": "perfilfuncionario"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 10,
+    "fields": {
+        "app_label": "ordem_servico",
+        "model": "setor"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 11,
+    "fields": {
+        "app_label": "ordem_servico",
+        "model": "solicitacao"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "a05s98job9v681962wdq70lcwqvxad4d",
+    "fields": {
+        "session_data": ".eJxVjEsOgjAUAO_y1qZpxdo-lu45A3m_CmogobAy3t2QsNDtzGTe0NO2Dv1WbelHhRYCnH4Zkzxt2oU-aLrPTuZpXUZ2e-IOW103q71uR_s3GKgO0AJnuSISE4rkQLGolnQO6lEp-SYqpkuUooxNg0aIwTxyCSlbNO8FPl8Khzio:1wHOTr:cTfO6EEcJPv9nlzcLL5_wBAEk33IugNUs0-Y48RquCM",
+        "expire_date": "2026-05-11T16:06:43.220Z"
+    }
+},
+{
+    "model": "ordem_servico.setor",
+    "pk": 1,
+    "fields": {
+        "nome": "Bloco A"
+    }
+},
+{
+    "model": "ordem_servico.setor",
+    "pk": 2,
+    "fields": {
+        "nome": "Bloco H"
+    }
+},
+{
+    "model": "ordem_servico.setor",
+    "pk": 3,
+    "fields": {
+        "nome": "Bloco B"
+    }
+},
+{
+    "model": "ordem_servico.categoria",
+    "pk": 1,
+    "fields": {
+        "nome": "Jardinagem"
+    }
+},
+{
+    "model": "ordem_servico.categoria",
+    "pk": 2,
+    "fields": {
+        "nome": "Limpeza"
+    }
+},
+{
+    "model": "ordem_servico.categoria",
+    "pk": 3,
+    "fields": {
+        "nome": "TI"
+    }
+},
+{
+    "model": "ordem_servico.solicitacao",
+    "pk": 1,
+    "fields": {
+        "solicitante": 1,
+        "setor": 2,
+        "categoria": 3,
+        "descricao": "A internet estﬂ muito lenta.",
+        "data_criacao": "2026-04-25T19:03:59.786Z"
+    }
+},
+{
+    "model": "ordem_servico.solicitacao",
+    "pk": 2,
+    "fields": {
+        "solicitante": 1,
+        "setor": 1,
+        "categoria": 1,
+        "descricao": "Podar a grama do pﬂtio.",
+        "data_criacao": "2026-04-25T19:05:20.447Z"
+    }
+},
+{
+    "model": "ordem_servico.solicitacao",
+    "pk": 4,
+    "fields": {
+        "solicitante": 1,
+        "setor": 3,
+        "categoria": 2,
+        "descricao": "Escurregaram o moreno no banheiro e t· fedendo muito.",
+        "data_criacao": "2026-04-25T19:14:26.204Z"
+    }
+},
+{
+    "model": "ordem_servico.solicitacao",
+    "pk": 5,
+    "fields": {
+        "solicitante": 1,
+        "setor": 2,
+        "categoria": 3,
+        "descricao": "Na sala H8, os computadores desligam sozinhos.",
+        "data_criacao": "2026-04-25T19:19:00.515Z"
+    }
+},
+{
+    "model": "ordem_servico.solicitacao",
+    "pk": 6,
+    "fields": {
+        "solicitante": 1,
+        "setor": 1,
+        "categoria": 2,
+        "descricao": "A sala de espera estﬂ com o lixeiro cheio.",
+        "data_criacao": "2026-04-25T19:19:39.788Z"
+    }
+},
+{
+    "model": "ordem_servico.solicitacao",
+    "pk": 7,
+    "fields": {
+        "solicitante": 1,
+        "setor": 3,
+        "categoria": 1,
+        "descricao": "Arvore precisa de podagem.",
+        "data_criacao": "2026-04-25T19:20:10.962Z"
+    }
+},
+{
+    "model": "ordem_servico.solicitacao",
+    "pk": 9,
+    "fields": {
+        "solicitante": 1,
+        "setor": 2,
+        "categoria": 3,
+        "descricao": "Os PCs na sala H7 est“o dando choque el⁄trico.",
+        "data_criacao": "2026-04-26T01:16:21.464Z"
+    }
+},
+{
+    "model": "ordem_servico.solicitacao",
+    "pk": 10,
+    "fields": {
+        "solicitante": 1,
+        "setor": 1,
+        "categoria": 2,
+        "descricao": "Vomitaram o ch“o do banheiro masculino.",
+        "data_criacao": "2026-04-26T02:04:53.241Z"
+    }
+},
+{
+    "model": "ordem_servico.solicitacao",
+    "pk": 11,
+    "fields": {
+        "solicitante": 1,
+        "setor": 2,
+        "categoria": 2,
+        "descricao": "Derramaram comida no corredor do primeiro andar.",
+        "data_criacao": "2026-04-26T02:10:48.150Z"
+    }
+},
+{
+    "model": "ordem_servico.perfilfuncionario",
+    "pk": 1,
+    "fields": {
+        "user": 2,
+        "categoria": 2
+    }
+},
+{
+    "model": "ordem_servico.perfilfuncionario",
+    "pk": 2,
+    "fields": {
+        "user": 3,
+        "categoria": 3
+    }
+},
+{
+    "model": "ordem_servico.perfilfuncionario",
+    "pk": 3,
+    "fields": {
+        "user": 4,
+        "categoria": 1
+    }
+},
+{
+    "model": "ordem_servico.ordemservico",
+    "pk": 1,
+    "fields": {
+        "solicitacao": 1,
+        "tecnico": 2,
+        "diagnostico": "O roteador precisou ser reiniciado.",
+        "status": "pendente",
+        "data_abertura": "2026-04-25T20:14:41.119Z"
+    }
+},
+{
+    "model": "ordem_servico.ordemservico",
+    "pk": 2,
+    "fields": {
+        "solicitacao": 9,
+        "tecnico": 2,
+        "diagnostico": "Um cabo estava desemcapado e causou mal contato.",
+        "status": "concluido",
+        "data_abertura": "2026-04-26T01:21:13.614Z"
+    }
+},
+{
+    "model": "ordem_servico.ordemservico",
+    "pk": 3,
+    "fields": {
+        "solicitacao": 5,
+        "tecnico": 2,
+        "diagnostico": "Um disjuntor estava desarmando sozinho! E com isso causando o problema. \r\n\r\nTroquei o mesmo e normalizou.",
+        "status": "concluido",
+        "data_abertura": "2026-04-26T01:25:40.746Z"
+    }
+},
+{
+    "model": "ordem_servico.ordemservico",
+    "pk": 4,
+    "fields": {
+        "solicitacao": 6,
+        "tecnico": 1,
+        "diagnostico": "O lixo foi recolhido.",
+        "status": "concluido",
+        "data_abertura": "2026-04-26T01:40:16.909Z"
+    }
+},
+{
+    "model": "ordem_servico.ordemservico",
+    "pk": 5,
+    "fields": {
+        "solicitacao": 7,
+        "tecnico": 3,
+        "diagnostico": "¡rvore podada.",
+        "status": "concluido",
+        "data_abertura": "2026-04-26T02:02:19.245Z"
+    }
+},
+{
+    "model": "ordem_servico.ordemservico",
+    "pk": 6,
+    "fields": {
+        "solicitacao": 2,
+        "tecnico": 3,
+        "diagnostico": "Grama aparada.",
+        "status": "concluido",
+        "data_abertura": "2026-04-26T02:03:53.388Z"
+    }
+},
+{
+    "model": "ordem_servico.ordemservico",
+    "pk": 7,
+    "fields": {
+        "solicitacao": 10,
+        "tecnico": 1,
+        "diagnostico": "Banheiro lavado com sucesso.",
+        "status": "concluido",
+        "data_abertura": "2026-04-26T02:05:20.605Z"
+    }
+},
+{
+    "model": "ordem_servico.ordemservico",
+    "pk": 8,
+    "fields": {
+        "solicitacao": 11,
+        "tecnico": 1,
+        "diagnostico": "Corredor limpo!",
+        "status": "concluido",
+        "data_abertura": "2026-04-26T02:11:09.384Z"
     }
 }
 ]
