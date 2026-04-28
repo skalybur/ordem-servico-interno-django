@@ -418,7 +418,7 @@
     "pk": 2,
     "fields": {
         "password": "pbkdf2_sha256$1200000$PcrfmFfHCiqxyuL8m1akLS$KBDfD1n3yyMYSXwCxtpOC7f1l6QQ3MUxtjFO3U+TPMo=",
-        "last_login": null,
+        "last_login": "2026-04-27T23:56:50.058Z",
         "is_superuser": false,
         "username": "Pedro",
         "first_name": "",
@@ -557,10 +557,10 @@
 },
 {
     "model": "sessions.session",
-    "pk": "a05s98job9v681962wdq70lcwqvxad4d",
+    "pk": "zfo1va3ecuz03kp60tzt41tm24b40zlu",
     "fields": {
-        "session_data": ".eJxVjEsOgjAUAO_y1qZpxdo-lu45A3m_CmogobAy3t2QsNDtzGTe0NO2Dv1WbelHhRYCnH4Zkzxt2oU-aLrPTuZpXUZ2e-IOW103q71uR_s3GKgO0AJnuSISE4rkQLGolnQO6lEp-SYqpkuUooxNg0aIwTxyCSlbNO8FPl8Khzio:1wHOTr:cTfO6EEcJPv9nlzcLL5_wBAEk33IugNUs0-Y48RquCM",
-        "expire_date": "2026-05-11T16:06:43.220Z"
+        "session_data": ".eJxVjLsOwjAMAP_FM4pIHefRkZ1vqJzYkAJqpaadEP-OKnWA9e50bxh4W-uwNV2GUaCHDk6_LHN56rQLefB0n02Zp3UZs9kTc9hmrrPo63K0f4PKrUIPmJ1XpIKYnGUJLoYsVtiSBhTqQqFIPiRiK0np7G-YkDXaFBmTU_h8AcvwNy0:1wHVoo:_dGEtYK9O50I4RgTnbfIlpZHxbjVfnp-Hv-wdqkOAlM",
+        "expire_date": "2026-05-11T23:56:50.061Z"
     }
 },
 {
@@ -705,6 +705,17 @@
     }
 },
 {
+    "model": "ordem_servico.solicitacao",
+    "pk": 12,
+    "fields": {
+        "solicitante": 1,
+        "setor": 2,
+        "categoria": 2,
+        "descricao": "Entupiram o banheiro.",
+        "data_criacao": "2026-04-27T23:52:48.096Z"
+    }
+},
+{
     "model": "ordem_servico.perfilfuncionario",
     "pk": 1,
     "fields": {
@@ -735,7 +746,7 @@
         "solicitacao": 1,
         "tecnico": 2,
         "diagnostico": "O roteador precisou ser reiniciado.",
-        "status": "pendente",
+        "status": "concluido",
         "data_abertura": "2026-04-25T20:14:41.119Z"
     }
 },
@@ -814,6 +825,17 @@
         "diagnostico": "Corredor limpo!",
         "status": "concluido",
         "data_abertura": "2026-04-26T02:11:09.384Z"
+    }
+},
+{
+    "model": "ordem_servico.ordemservico",
+    "pk": 9,
+    "fields": {
+        "solicitacao": 12,
+        "tecnico": 1,
+        "diagnostico": "Desentupi o banheiro. Caso resolvido!",
+        "status": "concluido",
+        "data_abertura": "2026-04-27T23:54:22.396Z"
     }
 }
 ]
