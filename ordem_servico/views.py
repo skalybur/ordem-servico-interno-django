@@ -10,7 +10,6 @@ class SolicitacaoListView(LoginRequiredMixin, ListView):
     template_name = 'ordem_servico/solicitacao_list.html'
     context_object_name = 'solicitacoes'
     paginate_by = 5
-    # Remova o 'ordering' daqui, pois vamos ordenar dentro do queryset abaixo
 
     def get_queryset(self):
     # O sinal de '-' indica ordem DECRESCENTE (mais novo primeiro)
