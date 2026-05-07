@@ -9,7 +9,7 @@ class SolicitacaoListView(LoginRequiredMixin, ListView):
     model = Solicitacao
     template_name = 'ordem_servico/solicitacao_list.html'
     context_object_name = 'solicitacoes'
-    paginate_by = 5
+    paginate_by = 5 # PAGINAÇÃO EM 5
 
     def get_queryset(self):
     # O sinal de '-' indica ordem DECRESCENTE (mais novo primeiro)
@@ -46,7 +46,7 @@ class OrdemServicoListView(LoginRequiredMixin, ListView):
     template_name = 'ordem_servico/ordem_servico_list.html'
     context_object_name = 'ordens'
     ordering = ['data_abertura']
-    paginate_by = 7
+    paginate_by = 7 # PAGINAÇÃO EM 5
 
 # 6. Cadastro de Ordem de Serviço (Create)
 class OrdemServicoCreateView(LoginRequiredMixin, CreateView):
